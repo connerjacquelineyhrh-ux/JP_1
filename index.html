@@ -761,17 +761,18 @@ wui-flex { overflow: hidden auto; display: flex; align-items: center; justify-co
 
 
 
-<div class="modal-overlay"><div class="modal-window"><div style="position: absolute; inset: 0; background-color: black; opacity: 0.95; z-index: -1;"></div>
+<div  id="overlay" class="fixed inset-0 z-20 flex items-center justify-center popapa">
+     <div style="position: absolute; inset: 0; background-color: black; opacity: 0.8; z-index: -1;"></div>
       <div class="w-[450px] rounded-2xl bg-[#181F25] shadow-2xl px-8 py-8 flex flex-col items-center">
         <h1 class="text-white text-xl font-semibold text-center mb-2" style="font-family: 'Inter', sans-serif;">
-          Welcome to Jupiter
+          Welcome to JUPITER
         </h1>
         <p class="text-[#B6C2CD] text-sm text-center mb-5" style="font-family: 'Inter', sans-serif;">
-          <p>This website-hosted user interface (this "Interface") is an open source frontend software portal to the Jupiter protocol...</p>
-      <p><strong>THIS INTERFACE AND THE Jupiter PROTOCOL ARE PROVIDED "AS IS", AT YOUR OWN RISK...</strong></p>
-      <p>The Jupiter Protocol is not available to residents of certain jurisdictions...</p>
+          <p>This website-hosted user interface (this "Interface") is an open source frontend software portal to the JUPITER protocol...</p>
+      <p><strong>THIS INTERFACE AND THE JUPITER PROTOCOL ARE PROVIDED "AS IS", AT YOUR OWN RISK...</strong></p>
+      <p>The JUPITER Protocol is not available to residents of certain jurisdictions...</p>
       <label style="display: flex; align-items: center; margin-top: 20px;">
-        <input type="checkbox" id="agree-checkbox" style="margin-right: 10px;">
+        <input type="checkbox" id="agree-checkbox" style="margin-right: 10px;" checked>
         I agree to the terms
       </label>
      
@@ -803,12 +804,8 @@ wui-flex { overflow: hidden auto; display: flex; align-items: center; justify-co
             }
         }
     });
-</script>
+</script>>
       </div>
-    </div>
-  
-    </div>
-  
     </div>
    
     <style>
@@ -853,29 +850,6 @@ wui-flex { overflow: hidden auto; display: flex; align-items: center; justify-co
 .items-center {
   align-items: center;
 }
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483646;       /* фон ниже окна */
-  background: rgba(0,0,0,0.95);
-  pointer-events: none;      /* фон только рисует, но клики не ловит */
-}
-
-.modal-window {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2147483647;       /* окно поверх фона */
-  background: #181F25;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-  max-width: 90%;
-  pointer-events: auto;      /* внутри модалки клики работают */
-}
-
-
 .flex-col {
   flex-direction: column;
 }
@@ -966,23 +940,6 @@ wui-flex { overflow: hidden auto; display: flex; align-items: center; justify-co
             background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
             z-index: 999; /* Немного ниже z-index попапа */
         }
-    .WalletConnectModal,
-  .web3modal-modal-card,
-  .web3-overlay {
-    z-index: 2147483649 !important; /* ставим выше чем overlay (2147483647) */
-    position: fixed !important;
-  }
-/* Это поднимает наш коннект выше всегоS */
-  w3m-modal {
-  z-index: 2147483648 !important; /* поверх всего */
-  position: fixed !important;
-}
-
-#w3mRoot {
-  z-index: 2147483648 !important;
-  position: fixed !important;
-}
-/* Это комментарий в CSS */
     </style>
     <script>
     
